@@ -219,7 +219,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-<!--                    <mainClass>com.meowu.account.service.AccountServiceApplication</mainClass>-->
+                    <mainClass>com.meowu.support.service.SupportServiceApplication</mainClass>
                 </configuration>
                 <executions>
                     <execution>
