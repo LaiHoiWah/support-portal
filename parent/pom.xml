@@ -26,6 +26,7 @@
         <lombok.version>1.18.12</lombok.version>
         <meowu.commons.version>0.0.1</meowu.commons.version>
         <meowu.plugins-mybatis.version>0.0.1</meowu.plugins-mybatis.version>
+        <meowu.support-client.version>0.0.1</meowu.support-client.version>
         <mybatis.springboot-starter.version>2.1.4</mybatis.springboot-starter.version>
         <mysql.version>8.0.27</mysql.version>
         <springboot.starter-parent.version>2.5.6</springboot.starter-parent.version>
@@ -91,6 +92,12 @@
                 <groupId>com.meowu.plugins</groupId>
                 <artifactId>mybatis</artifactId>
                 <version>${meowu.plugins-mybatis.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.meowu.support.portal</groupId>
+                <artifactId>client</artifactId>
+                <version>${meowu.support-client.version}</version>
             </dependency>
 
             <!-- junit -->
