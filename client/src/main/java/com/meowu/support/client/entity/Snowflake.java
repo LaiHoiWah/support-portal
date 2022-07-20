@@ -9,12 +9,13 @@ import java.util.Date;
 @Setter
 public class Snowflake{
 
-    private Long    id;
+    private String  id;
     private String  applicationName;
     private String  ip;
     private Integer port;
     private Integer centerId;
     private Integer workerId;
+    private Long    timeGen;
     private Date    createTime;
     private Date    updateTime;
 }
