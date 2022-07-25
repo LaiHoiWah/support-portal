@@ -13,8 +13,8 @@ public class Snowflake{
     private String  applicationName;
     private String  ip;
     private Integer port;
-    private Integer centerId;
-    private Integer workerId;
+    private Long    centerId;
+    private Long    workerId;
     private Long    timeGen;
     private Date    createTime;
     private Date    updateTime;

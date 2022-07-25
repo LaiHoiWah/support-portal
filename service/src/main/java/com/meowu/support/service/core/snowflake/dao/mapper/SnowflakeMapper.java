@@ -16,6 +16,8 @@ public interface SnowflakeMapper{
 
     void update(Snowflake snowflake);
 
+    Snowflake get(@Param("params") Criteria criteria);
+
     List<Snowflake> find(@Param("params") Criteria criteria);
 
     Long count(@Param("params") Criteria criteria);

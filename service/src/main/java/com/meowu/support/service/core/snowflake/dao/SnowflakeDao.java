@@ -42,12 +42,51 @@ public class SnowflakeDao{
         mapper.update(snowflake);
     }
 
+    public boolean existByApplicationNameAndIpAndPort(String applicationName, String ip, Integer port){
+        AssertUtils.hasText(applicationName, "[snowflake]: application name must not be null");
+        AssertUtils.hasText(ip, "[snowflake]: ip must not be null");
+        AssertUtils.notNull(port, "[snowflake]: port must not be null");
+
+        Criteria criteria = new Criteria();
+        criteria.add(Restrictions.eq(Snowflake::getApplicationName, applicationName));
+        criteria.add(Restrictions.eq(Snowflake::getIp, ip));
+        criteria.add(Restrictions.eq(Snowflake::getPort, port));
+
+        Long total = mapper.count(criteria);
+
+        return (total != null && total > 0);
+    }
+
+    public Snowflake getByApplicationNameAndIpAndPort(String applicationName, String ip, Integer port){
+        AssertUtils.hasText(applicationName, "[snowflake]: application name must not be null");
+        AssertUtils.hasText(ip, "[snowflake]: ip must not be null");
+        AssertUtils.notNull(port, "[snowflake]: port must not be null");
+
+        Criteria criteria = new Criteria();
+        criteria.add(Restrictions.eq(Snowflake::getApplicationName, applicationName));
+        criteria.add(Restrictions.eq(Snowflake::getIp, ip));
+        criteria.add(Restrictions.eq(Snowflake::getPort, port));
+
+        return mapper.get(criteria);
+    }
+
     public List<Snowflake> findByApplicationName(String applicationName){
         AssertUtils.hasText(applicationName, "[snowflake]: application name must not be null");
 
         Criteria criteria = new Criteria();
-        criteria.add(Restrictions.eq("applicationName", applicationName));
+        criteria.add(Restrictions.eq(Snowflake::getApplicationName, applicationName));
 
         return mapper.find(criteria);
+    }
+
+    public long countByApplicationName(String applicationName){
+        AssertUtils.hasText(applicationName, "[snowflake]: application name must not be null");
+
+        Criteria criteria = new Criteria();
+        criteria.add(Restrictions.eq(Snowflake::getApplicationName, applicationName));
+
+        Long total = mapper.count(criteria);
+
+        return (total != null ? total : 0L);
     }
 }
