@@ -16,6 +16,9 @@ public class SnowflakeServiceImpl implements SnowflakeService{
     @Transactional
     @Override
     public Snowflake get(String applicationName, String ip, Integer port, Long timeGen){
+        // create or search the record
+        Snowflake snowflake = snowflakeManager.get(applicationName, ip, port, timeGen);
 
+        return snowflake;
     }
 }
