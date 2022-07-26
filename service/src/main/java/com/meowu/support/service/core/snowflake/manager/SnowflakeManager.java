@@ -1,5 +1,6 @@
 package com.meowu.support.service.core.snowflake.manager;
 
+import com.meowu.support.client.commons.security.exception.TimeRegressionException;
 import com.meowu.support.client.entity.Snowflake;
 import com.meowu.support.service.commons.stereotype.annotation.Manager;
 import com.meowu.support.service.commons.stereotype.consts.SnowflakeConsts;
@@ -39,7 +40,7 @@ public class SnowflakeManager{
 
         }else{
             if(timeGen < snowflake.getTimeGen()){
-                // TODO throw the time flash back exception
+                throw new TimeRegressionException("time gen regression from [{0,number,#}] to [{1,number,#}]");
             }
 
             snowflake.setTimeGen(timeGen);
